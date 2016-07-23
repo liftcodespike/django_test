@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<a href="{%url 'logout' %}">Logout</a>
+	<p>Welcome, {{currentUser.name}}!</p><br>
+	<p>You have been poked {{currentUser.poke_count}} times!</p>
+
+	<div style="height: 200px; max-width: 500px; border: thin solid black; overflow: scroll" >
+
+		{%for info in currentUser.poke_info|dictsortreversed:"poke_count"%}
+			<p>{{info.name}} has poked you {{info.poke_count}} times. </p>
+		{%endfor%}
+	</div><br><br>
+	<p>People you may want to Poke:</p>
+
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Alias</th>
+			<th>Email</th>
+			<th>Poke History</th>
+			<th>Action</th>
+		</tr>
+			{%for user in othersInfo%}
+				<tr>
+					<th>{{user.name}}</th>
+					<th>{{user.username}}</th>
+					<th>{{user.email}}</th>
+					<th>{{user.poke_count}} pokes</th>
+					<th><a href="/pokes/add/{{user.id}}">Poke!</a></th>
+				</tr>
+			{%endfor%}	
+	</table>
+</body>
+</html>
