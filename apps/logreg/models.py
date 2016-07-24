@@ -6,11 +6,11 @@ from django.utils import timezone
 
 # Create your models here.
 class User(models.Model):
-	name = models.CharField(max_length=50)
-	username = models.CharField(max_length=50)
-	password = models.CharField(max_length=50)
-	email = models.CharField(max_length=50)
-	birthdate = models.CharField(max_length=50)
+	name = models.CharField(max_length=100)
+	username = models.CharField(max_length=100)
+	password = models.CharField(max_length=100)
+	email = models.CharField(max_length=100)
+	birthdate = models.CharField(max_length=100)
 	class Meta:
 		db_table ='users'
 
